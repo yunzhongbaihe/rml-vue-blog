@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        rml-vue-blog
         <router-view/>
     </div>
 </template>
