@@ -64,6 +64,16 @@ module.exports = {
                     name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
                 }
             }
+        ],
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel',
+                query: {
+                    presets: ['es2015']
+                }
+            }
         ]
     },
     node: {
@@ -77,5 +87,18 @@ module.exports = {
         net: 'empty',
         tls: 'empty',
         child_process: 'empty'
+    },
+    devServer: {
+        host: 'localhost',
+        port: 80,
+        proxy: {
+            '/action/': {
+                target: 'http://localhost:80',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/action': ''
+                }
+            }
+        }
     }
 };
