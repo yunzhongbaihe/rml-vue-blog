@@ -2,8 +2,8 @@ import axios from 'axios';
 import qs from 'qs';
 import {baseURL} from './config';
 
-axios.defaluts.timeout = 10000; // 设置超时请求时间
-axios.defaluts.withCredentials = true; // 设置CORS跨域允许携带资源凭证
+axios.defaults.timeout = 10000; // 设置超时请求时间
+// axios.defaults.withCredentials = true; // 设置CORS跨域允许携带资源凭证
 
 // 设置请求拦截器
 axios.interceptors.request.use(config => {
@@ -66,7 +66,7 @@ const axiosApi = (method = 'get', url, params = {}) => {
 
 export default {
     install: Vue => {
-        Vue.prototype.$get = (url, params) => axiosApi('get', url, params);
-        Vue.prototype.$post = (url, params) => axiosApi('get', url, params);
+        Vue.prototype.$getAxios = (url, params) => axiosApi('get', url, params);
+        Vue.prototype.$postAxios = (url, params) => axiosApi('get', url, params);
     }
 }

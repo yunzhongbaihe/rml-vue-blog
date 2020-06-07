@@ -13,8 +13,16 @@ export default new Router({
         },
         {
             path: '/timeaxis',
-            name: 'timeaxis',
+            name: 'Timeaxis',
             component: () => import('@/components/Timeaxis')
+        },
+        {
+            path: '/books',
+            name: 'Books',
+            component: () => import('@/components/Books'),
+            children: [
+                {path: 'info/:id', component: () => import('@/components/BookInfo')}
+            ]
         }
     ]
 });

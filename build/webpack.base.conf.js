@@ -90,13 +90,13 @@ module.exports = {
     },
     devServer: {
         host: 'localhost',
-        port: 80,
+        port: 3000,
         proxy: {
-            '/action/': {
-                target: 'http://localhost:80',
+            '/api/': {
+                target: 'http://localhost:3000',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/action': ''
+                    '^/api': ''
                 }
             }
         }

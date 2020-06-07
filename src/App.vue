@@ -1,13 +1,19 @@
 <template>
     <div id="app">
-        rml-vue-blog
         <router-view/>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'App'
+        name: 'App',
+        mounted(){
+            // this.$getAxios('/api/bookInfo', {
+            //     ISBN: '9787010009148',
+            // }).then(data => {
+            //     console.log(data);
+            // });
+        }
     }
 </script>
 
