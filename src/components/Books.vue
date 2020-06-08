@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="!$route.params.id">
-            <ul>
+            <ul v-if="books && books.length">
                 <li v-for="item in books" :key="item.title">
                     <router-link class="a_title" :to="`/books/info/${item.id}`">
                         <img :src="item.cover_url" alt=""/>
@@ -9,6 +9,7 @@
                     </router-link>
                 </li>
             </ul>
+            <Nodatadisplay v-else msg="新书还未上架"/>
         </div>
         <router-view v-else/>
     </div>
@@ -16,6 +17,7 @@
 
 <script>
     import {Loading} from 'element-ui';
+    import Nodatadisplay from "@/components/Nodatadisplay";
 
     export default {
         name: "Books",
@@ -26,8 +28,8 @@
             }
         },
         mounted(){
-            this.loadingInstance = Loading.service({background: 'rgba(0,0,0,0.5)'});
             this.$getAxios('/api/bookNew').then(data => {
+                this.loadingInstance = Loading.service({background: 'rgba(0,0,0,0.5)'});
                 data.data.map(item => {
                     if(/https:\/\/book.douban.com\/subject\/(\d+)\/\?icn=index-latestbook-subject/g.test(item.url)){
                         this.$set(item, 'id', RegExp.$1);
@@ -37,6 +39,9 @@
                 setTimeout(() => this.loadingInstance.close(), 1000);
             });
         },
+        components: {
+            Nodatadisplay
+        }
     }
 </script>
 

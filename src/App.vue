@@ -1,16 +1,13 @@
 <template>
     <div id="app">
-        <div class="nav_wrap">
-            <router-link to="/index">首页</router-link>
-            <router-link to="/books">新书速递</router-link>
-            <router-link to="/timeaxis">时间轴</router-link>
-        </div>
+        <HeaderNav></HeaderNav>
         <router-view class="w1200" style="padding-bottom:20px;"/>
     </div>
 </template>
 
 <script>
     // import {mapGetters, mapMutations, mapActions} from "vuex";
+    import HeaderNav from "@/components/HeaderNav";
 
     export default {
         name: 'App',
@@ -27,6 +24,9 @@
         methods: {
             // ...mapMutations(['editBookId']),
             // ...mapActions(['editBookId']),
+        },
+        components: {
+            HeaderNav
         }
     }
 </script>
@@ -38,17 +38,13 @@
         font-family: "JetBrains Mono", "Fira Code";
         font-size: 12px;
     }
+    
+    body {
+        background-color: #f6f6f6;
+    }
 
     .w1200 {
         width: 1200px;
         margin: 0 auto;
-    }
-    
-    .nav_wrap {
-        display: flex;
-    }
-    
-    .nav_active {
-        color: red;
     }
 </style>
