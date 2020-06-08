@@ -5,11 +5,16 @@ Vue.use(Router);
 
 export default new Router({
     mode: 'history',
+    linkActiveClass: 'nav_active',
     routes: [
         {
             path: '/',
+            redirect: '/index',
+        },
+        {
+            path: '/index',
             name: 'HelloWorld',
-            component: () => ('<div>dddd</div>')
+            component: () => import('@/components/Index')
         },
         {
             path: '/timeaxis',

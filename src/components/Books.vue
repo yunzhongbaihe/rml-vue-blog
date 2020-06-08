@@ -1,10 +1,12 @@
 <template>
-    <div class="w1200">
+    <div>
         <div v-if="!$route.params.id">
             <ul>
                 <li v-for="item in books" :key="item.title">
-                    <img :src="item.cover_url" alt=""/>
-                    <router-link class="a_title" :to="`/books/info/${item.id}`">{{item.title}}</router-link>
+                    <router-link class="a_title" :to="`/books/info/${item.id}`">
+                        <img :src="item.cover_url" alt=""/>
+                        <span>{{item.title}}</span>
+                    </router-link>
                 </li>
             </ul>
         </div>
@@ -13,14 +15,18 @@
 </template>
 
 <script>
+    import {Loading} from 'element-ui';
+
     export default {
         name: "Books",
         data(){
             return {
-                books: []
+                books: [],
+                loadingInstance: null,
             }
         },
         mounted(){
+            this.loadingInstance = Loading.service({background: 'rgba(0,0,0,0.5)'});
             this.$getAxios('/api/bookNew').then(data => {
                 data.data.map(item => {
                     if(/https:\/\/book.douban.com\/subject\/(\d+)\/\?icn=index-latestbook-subject/g.test(item.url)){
@@ -28,17 +34,13 @@
                     }
                 });
                 this.books = data.data;
+                setTimeout(() => this.loadingInstance.close(), 1000);
             });
-        }
+        },
     }
 </script>
 
 <style scoped>
-    .w1200 {
-        width: 1200px;
-        margin: 0 auto;
-    }
-
     ul {
         display: flex;
         flex-wrap: wrap;
@@ -50,20 +52,37 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 20px 10px;
-        width: 150px;
+        margin-top: 20px;
+        margin-left: 20px;
+        padding: 10px;
+        width: 224px;
         box-sizing: border-box;
-        border: 1px solid #e6e6e6;
+        box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+    ul li:nth-child(5n+1) {
+        margin-left: 0;
     }
 
     ul img {
         display: block;
         width: 100%;
+        height: 240px;
+        transition: all 0.3s linear;
+    }
+    
+    li:hover img {
+        transform: scale(0.95);
     }
 
-    ul .a_title {
-        padding: 5px;
+    ul .a_title span {
+        display: block;
+        margin-top: 10px;
         font-size: 14px;
+        text-align: center;
     }
 
     .a_title:visited {
