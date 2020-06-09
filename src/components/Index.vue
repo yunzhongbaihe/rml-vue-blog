@@ -16,11 +16,12 @@
                                 <img :src="item.image" :alt="item.image">
                             </a>
                             <div>
-                                <el-tooltip class="item" effect="light" 
+                                <!--<el-tooltip class="item" effect="light" 
                                             :content="item.desc" placement="top" 
                                             popper-class="article_text_tip">
                                     <p class="article_text">{{item.desc}}</p>
-                                </el-tooltip>
+                                </el-tooltip>-->
+                                <p class="article_text">{{item.desc}}</p>
                                 <el-button type="primary" size="mini">阅读更多</el-button>
                             </div>
                         </div>
