@@ -13,21 +13,24 @@ export default new Router({
         },
         {
             path: '/index',
-            name: 'HelloWorld',
-            component: () => import('@/components/Index')
+            name: 'Index',
+            component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Index'),
+            meta: {keepAlive: false},
         },
         {
             path: '/timeaxis',
             name: 'Timeaxis',
-            component: () => import('@/components/Timeaxis')
+            component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Timeaxis'),
+            meta: {keepAlive: true},
         },
         {
             path: '/books',
             name: 'Books',
-            component: () => import('@/components/Books'),
+            component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Books'),
             children: [
-                {path: 'info/:id', component: () => import('@/components/BookInfo')}
-            ]
+                {path: 'info/:id', component: () => import(/* webpackChunkName: "group-foo" */ '@/components/BookInfo')}
+            ],
+            meta: {keepAlive: false},
         }
     ]
 });
