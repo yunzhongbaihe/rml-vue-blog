@@ -3,7 +3,7 @@
         <div class="g_flex" style="justify-content:space-between;align-items:flex-start;">
             <!-- 左侧 -->
             <div class="w800">
-                <el-carousel trigger="click" :autoplay="false" height="300px" style="background: #d3dce6;">
+                <el-carousel trigger="click" :autoplay="true" height="300px" style="background:#d3dce6;">
                     <el-carousel-item v-for="(item, index) in carouselList.default" :key="index">
                         <img :src="item" width="100%" alt="">
                     </el-carousel-item>
@@ -13,14 +13,9 @@
                         <h3><a href="javascript:void(0);">{{item.title}}</a></h3>
                         <div class="g_flex">
                             <a href="javascript:void(0);" class="article_img">
-                                <img :src="item.image" :alt="item.image">
+                                <el-image :src="item.image" :lazy="true"></el-image>
                             </a>
                             <div>
-                                <!--<el-tooltip class="item" effect="light" 
-                                            :content="item.desc" placement="top" 
-                                            popper-class="article_text_tip">
-                                    <p class="article_text">{{item.desc}}</p>
-                                </el-tooltip>-->
                                 <p class="article_text">{{item.desc}}</p>
                                 <el-button type="primary" size="mini">阅读更多</el-button>
                             </div>
@@ -33,12 +28,28 @@
                 <!-- 家乡名片 -->
                 <el-card class="g_bg_fff calling_card card_reset">
                     <div class="calling_card_bot">
-                        <span>家乡名片</span>
+                        <span>诗词赏析 雨落茶川</span>
                         <a :href="cardImage" target="_blank">
                             <img :src="cardImage" class="image">
                         </a>
-                        <div class="bottom clearfix">
-                            <p>江南忆，最忆是杭州</p>
+                        <div class="bottom clearfix" style="display:flex;justify-content:center">
+                            <div>
+                                <p>说话的不太多，却又见雨落</p>
+                                <p>一年一次的过，是光阴蹉跎</p>
+                                <p>太完整的风铃，雨也太寂寞</p>
+                                <p>走不出的路口，村庄的宽阔</p>
+                                <p>我在这里等你，感受那雨落</p>
+                                <p>看远处的浓雾，山头的错落</p>
+                                <p>雨落茶川，你我同在</p>
+                                <p>纷纷扰扰的艳丽在雨中存在</p>
+                                <p>春暖花开，不再等待</p>
+                                <p>桃花春兰的盛情在这里款待</p>
+                                <p>你说茶川好风光</p>
+                                <p>水的柔肠，养着淳朴的胸怀</p>
+                                <p>装着一个可人儿</p>
+                                <p>烟雨蒙蒙，杨柳依依</p>
+                                <p>随风直到，你我的，伊甸园</p>
+                            </div>
                         </div>
                     </div>
                 </el-card>
@@ -138,7 +149,12 @@
     .calling_card .bottom {
         font-size: 14px;
         color: #555;
+        line-height: 26px;
     }
+    
+    /*.calling_card .bottom p {*/
+    /*    font-family: "STXinwei";*/
+    /*}*/
 
     .article_list {
         padding: 20px;
@@ -182,13 +198,13 @@
         position: relative;
     }
 
-    .article_img img {
+    /deep/ .article_img img {
         width: 100%;
-        height: 100%;
+        height: 105px;
         transition: all 0.5s;
     }
 
-    .article_img:hover img {
+    /deep/ .article_img:hover img {
         transform: scale(1.1);
     }
 
