@@ -67,6 +67,6 @@ const axiosApi = (method = 'get', url, params = {}) => {
 export default {
     install: Vue => {
         Vue.prototype.$getAxios = (url, params) => axiosApi('get', url, params);
-        Vue.prototype.$postAxios = (url, params) => axiosApi('get', url, params);
+        Vue.prototype.$postAxios = (url, params) => axiosApi('post', url, params);
     }
 }

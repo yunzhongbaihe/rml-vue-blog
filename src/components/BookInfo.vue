@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="w1200">
         <div v-if="bookInfo.id" class="d_flex">
             <div class="img_wrap">
                 <img :src="bookInfo.cover_url" alt="">

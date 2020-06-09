@@ -1,10 +1,10 @@
 <template>
     <div id="app">
-        <HeaderNav></HeaderNav>
+        <HeaderNav v-if="$route.meta.showHeaderbar"></HeaderNav>
         <keep-alive>
-            <router-view v-if="$route.meta.keepAlive" class="w1200" style="padding-bottom:20px;"></router-view>
+            <router-view v-if="$route.meta.keepAlive"></router-view>
         </keep-alive>
-        <router-view v-if="!$route.meta.keepAlive" class="w1200" style="padding-bottom:20px;"></router-view>
+        <router-view v-if="!$route.meta.keepAlive"></router-view>
     </div>
 </template>
 

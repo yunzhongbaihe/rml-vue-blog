@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="w1200">
         <div v-if="!$route.params.id">
             <ul v-if="books && books.length">
                 <li v-for="item in books" :key="item.title">

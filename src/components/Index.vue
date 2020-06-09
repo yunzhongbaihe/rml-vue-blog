@@ -1,5 +1,5 @@
 <template>
-    <div class="g_mt_20">
+    <div class="w1200 g_mt_20">
         <div class="g_flex" style="justify-content:space-between;align-items:flex-start;">
             <!-- 左侧 -->
             <div class="w800">

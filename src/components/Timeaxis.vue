@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="w1200">
         <!--<el-timeline style="margin-top:20px;">
             <el-timeline-item timestamp="2018/4/12" placement="top">
                 <el-card>
