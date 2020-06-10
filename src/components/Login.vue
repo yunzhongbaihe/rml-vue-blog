@@ -15,6 +15,9 @@
                     <el-button type="primary" @click="login">确定</el-button>
                     <el-button type="info" @click="resetLoginForm">重置</el-button>
                 </el-form-item>
+                <el-form-item class="btns">
+                    <div>没有账号？<router-link to="/register">去注册</router-link></div>
+                </el-form-item>
             </el-form>
         </div>
     </div>
@@ -73,17 +76,16 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        width: 450px;
-        height: 300px;
+        min-width: 450px;
         transform: translate(-50%, -50%);
         background-color: #fff;
         border-radius: 3px;
     }
 
     .avatar_box {
-        position: absolute;
+        position: relative;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -30%);
         padding: 5px;
         width: 100px;
         height: 100px;
@@ -102,9 +104,7 @@
     }
 
     .login_form {
-        position: absolute;
-        bottom: 20px;
-        padding: 0 20px;
+        padding: 0 20px 10px;
         width: 100%;
         box-sizing: border-box;
     }
@@ -112,5 +112,10 @@
     .btns {
         display: flex;
         justify-content: flex-end;
+        margin-bottom: 0;
+    }
+
+    .btns a, .btns a:visited {
+        color: #51AEF0;
     }
 </style>

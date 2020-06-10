@@ -25,8 +25,12 @@
             </div>
             <!-- 右侧 -->
             <div class="w380">
+                <div style="display:flex;justify-content:flex-end;">
+                    <el-button type="primary" size="mini">登录</el-button>
+                    <el-button type="info" size="mini">注册</el-button>
+                </div>
                 <!-- 家乡名片 -->
-                <el-card class="g_bg_fff calling_card card_reset">
+                <el-card class="g_bg_fff g_mt_20 calling_card card_reset">
                     <div class="calling_card_bot">
                         <span>诗词赏析 雨落茶川</span>
                         <a :href="cardImage" target="_blank">

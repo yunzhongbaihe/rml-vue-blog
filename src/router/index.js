@@ -19,6 +19,12 @@ const router = new Router({
             meta: {keepAlive: false, showHeaderbar: false},
         },
         {
+            path: '/register',
+            name: 'Register',
+            component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Register'),
+            meta: {keepAlive: false, showHeaderbar: false},
+        },
+        {
             path: '/index',
             name: 'Index',
             component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Index'),

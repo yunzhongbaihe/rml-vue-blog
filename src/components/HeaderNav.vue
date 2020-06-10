@@ -4,13 +4,22 @@
             <router-link to="/index">首页</router-link>
             <router-link to="/books">新书速递</router-link>
             <router-link to="/timeaxis">时间轴</router-link>
+            <router-link v-if="tokenStr" to="/workbench">工作台</router-link>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'HeaderNav'
+        name: 'HeaderNav',
+        data(){
+            return {
+                tokenStr: ''
+            }
+        },
+        mounted(){
+            this.tokenStr = window.sessionStorage.getItem('token');
+        }
     }
 </script>
 
