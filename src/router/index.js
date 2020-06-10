@@ -10,7 +10,7 @@ const router = new Router({
     routes: [
         {
             path: '/',
-            redirect: '/login',
+            redirect: '/index',
         },
         {
             path: '/login',
@@ -38,7 +38,13 @@ const router = new Router({
                 {path: 'info/:id', component: () => import(/* webpackChunkName: "group-foo" */ '@/components/BookInfo')}
             ],
             meta: {keepAlive: false, showHeaderbar: true},
-        }
+        },
+        {
+            path: '/workbench',
+            name: 'Workbench',
+            component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Workbench'),
+            meta: {keepAlive: false, showHeaderbar: false},
+        },
     ]
 });
 
@@ -46,7 +52,8 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
     if(to.path === '/login') return next();
     const tokenStr = window.sessionStorage.getItem('token');
-    if(!tokenStr) return next('/login');
+    // 如果是去工作台，但是没有登录的情况下，跳转至登录页
+    // if(!tokenStr && to.path === '/workbench') return next('/login');
     next();
 });
 

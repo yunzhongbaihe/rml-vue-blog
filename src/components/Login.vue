@@ -55,6 +55,7 @@
                     if(!res.success) return this.$message.error(res.msg);
                     this.$message.success('登录成功');
                     window.sessionStorage.setItem('token', res.data.token);
+                    window.sessionStorage.setItem('loginInfo', res.data);
                     await this.$router.push('/index');
                 });
             }

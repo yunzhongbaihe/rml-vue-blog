@@ -1,12 +1,15 @@
 <template>
-    <div class="none_book_info">{{msg}}</div>
+    <div class="none_book_info">
+        <div>{{msg}}</div>
+        <slot></slot>
+    </div>
 </template>
 
 <script>
     export default {
         props: {
             msg: {
-                default: '暂无数据'
+                default: ''
             }
         },
         name: 'Nodatadisplay'
@@ -17,7 +20,8 @@
     .none_book_info {
         margin-top: 200px;
         padding-top: 165px;
-        height: 215px;
+        min-width: 200px;
+        min-height: 215px;
         background: url("../../static/images/none.png") no-repeat center 0;
         -webkit-background-size: 200px;
         background-size: 200px;
