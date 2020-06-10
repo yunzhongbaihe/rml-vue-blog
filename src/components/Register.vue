@@ -92,9 +92,9 @@
                     if(!valid) return;
                     const res = await this.$postAxios('/api/register', this.registerForm);
                     if(!res.success) return this.$message.error(res.msg);
-                    this.$message.success('登录成功');
+                    this.$message.success(res.msg);
                     window.sessionStorage.setItem('token', res.data.token);
-                    window.sessionStorage.setItem('registerInfo', res.data);
+                    window.sessionStorage.setItem('loginInfo', JSON.stringify(res.data));
                     await this.$router.push('/index');
                 });
             }

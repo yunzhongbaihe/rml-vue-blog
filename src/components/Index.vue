@@ -26,8 +26,12 @@
             <!-- 右侧 -->
             <div class="w380">
                 <div style="display:flex;justify-content:flex-end;">
-                    <el-button type="primary" size="mini">登录</el-button>
-                    <el-button type="info" size="mini">注册</el-button>
+                    <router-link to="/login" style="margin-right:10px;">
+                        <el-button type="primary" size="mini">登录</el-button>
+                    </router-link>
+                    <router-link to="/register">
+                        <el-button type="info" size="mini">注册</el-button>
+                    </router-link>
                 </div>
                 <!-- 家乡名片 -->
                 <el-card class="g_bg_fff g_mt_20 calling_card card_reset">
