@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <HeaderNav v-if="$route.meta.showHeaderbar"></HeaderNav>
-        <router-view v-if="routerView"></router-view>
+        <HeaderNav v-if="$route.meta.showHeaderbar && isKeepAlive"></HeaderNav>
+        <router-view v-if="isKeepAlive"></router-view>
     </div>
 </template>
 
@@ -13,7 +13,7 @@
         name: 'App',
         data(){
             return {
-                routerView: true
+                isKeepAlive: true
             }
         },
         mounted(){
@@ -29,9 +29,9 @@
             // ...mapActions(['editBookId']),
             reload(){
                 this.getSession();
-                this.routerView = false;
+                this.isKeepAlive = false;
                 this.$nextTick(() => {
-                    this.routerView = true;
+                    this.isKeepAlive = true;
                 });
             }
         },
