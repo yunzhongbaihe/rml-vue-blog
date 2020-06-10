@@ -16,25 +16,25 @@ const router = new Router({
             path: '/login',
             name: 'Login',
             component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Login'),
-            meta: {keepAlive: false, showHeaderbar: false},
+            meta: {showHeaderbar: false},
         },
         {
             path: '/register',
             name: 'Register',
             component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Register'),
-            meta: {keepAlive: false, showHeaderbar: false},
+            meta: {showHeaderbar: false},
         },
         {
             path: '/index',
             name: 'Index',
             component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Index'),
-            meta: {keepAlive: false, showHeaderbar: true},
+            meta: {showHeaderbar: true},
         },
         {
             path: '/timeaxis',
             name: 'Timeaxis',
             component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Timeaxis'),
-            meta: {keepAlive: true, showHeaderbar: true},
+            meta: {showHeaderbar: true},
         },
         {
             path: '/books',
@@ -43,13 +43,13 @@ const router = new Router({
             children: [
                 {path: 'info/:id', component: () => import(/* webpackChunkName: "group-foo" */ '@/components/BookInfo')}
             ],
-            meta: {keepAlive: false, showHeaderbar: true},
+            meta: {showHeaderbar: true},
         },
         {
             path: '/workbench',
             name: 'Workbench',
             component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Workbench'),
-            meta: {keepAlive: false, showHeaderbar: false},
+            meta: {showHeaderbar: false},
         },
     ]
 });

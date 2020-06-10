@@ -31,7 +31,7 @@
                 // 数据绑定对象
                 loginForm: {
                     username: 'admin',
-                    password: '123456',
+                    password: '123456789',
                 },
                 // 验证规则对象
                 loginFormRules: {
@@ -59,7 +59,7 @@
                     this.$message.success('登录成功');
                     window.sessionStorage.setItem('token', res.data.token);
                     window.sessionStorage.setItem('loginInfo', JSON.stringify(res.data));
-                    await this.$router.push('/index');
+                    await this.$router.push({name: 'Index', params: {isGetSession: true}});
                 });
             }
         }

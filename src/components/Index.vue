@@ -25,13 +25,13 @@
             </div>
             <!-- 右侧 -->
             <div class="w380">
-                <div style="display:flex;justify-content:flex-end;">
-                    <router-link to="/login" style="margin-right:10px;">
-                        <el-button type="primary" size="mini">登录</el-button>
-                    </router-link>
-                    <router-link to="/register">
-                        <el-button type="info" size="mini">注册</el-button>
-                    </router-link>
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <p>{{this.loginInfoObj.username ? 'Hi，' + this.loginInfoObj.username : ''}}</p>
+                    <div v-if="!this.tokenStr">
+                        <el-button type="primary" size="mini" @click="$router.push('/login')">登录</el-button>
+                        <el-button type="info" size="mini" @click="$router.push('/register')">注册</el-button>
+                    </div>
+                    <el-button v-if="this.tokenStr" type="info" size="mini" @click="logout">退出</el-button>
                 </div>
                 <!-- 家乡名片 -->
                 <el-card class="g_bg_fff g_mt_20 calling_card card_reset">
@@ -99,6 +99,7 @@
     import Popover from '@/components/Popover';
     
     export default {
+        inject: ['reload'],
         name: 'Index',
         data(){
             return {
@@ -110,6 +111,12 @@
         },
         components: {
             Popover
+        },
+        methods: {
+            logout(){
+                window.sessionStorage.clear();
+                this.reload();
+            }
         }
     }
 </script>

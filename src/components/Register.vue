@@ -95,7 +95,7 @@
                     this.$message.success(res.msg);
                     window.sessionStorage.setItem('token', res.data.token);
                     window.sessionStorage.setItem('loginInfo', JSON.stringify(res.data));
-                    await this.$router.push('/index');
+                    await this.$router.push({name: 'Index', params: {isGetSession: true}});
                 });
             }
         }

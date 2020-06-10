@@ -3,8 +3,9 @@
         <div v-if="loginInfoObj.username" style="width:100%;">
             <!-- 头部区域 -->
             <el-header>
-                <span v-if="loginInfoObj.username" style="margin-right:20px;">{{loginInfoObj.username}}</span>
+                <span v-if="this.loginInfoObj.username" style="margin-right:20px;">{{this.loginInfoObj.username}}</span>
                 <el-button type="info" size="mini" @click="logout">退出</el-button>
+                <el-button type="primary" size="mini" @click="$router.push('/index')">回到首页</el-button>
             </el-header>
             <el-container>
                 <!-- 左侧导航区域 -->
@@ -51,17 +52,13 @@
         name: 'Workbench',
         data(){
             return {
-                loginInfoObj: {},
                 isCollapse: false
             }
-        },
-        mounted(){
-            this.loginInfoObj = JSON.parse(window.sessionStorage.getItem('loginInfo')) || {username: 'yunzhongbaihe'};
         },
         methods: {
             logout(){
                 window.sessionStorage.clear();
-                this.$router.push('/index');
+                this.$router.push({name: 'Index', params: {isGetSession: true}});
             },
             handleOpen(key, keyPath){
                 console.log(key, keyPath);
