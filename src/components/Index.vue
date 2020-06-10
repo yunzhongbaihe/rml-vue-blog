@@ -3,7 +3,7 @@
         <div class="g_flex" style="justify-content:space-between;align-items:flex-start;">
             <!-- 左侧 -->
             <div class="w800">
-                <el-carousel trigger="click" :autoplay="true" height="300px" style="background:#d3dce6;">
+                <el-carousel trigger="click" :autoplay="autoplay" height="300px" style="background:#d3dce6;">
                     <el-carousel-item v-for="(item, index) in carouselList.default" :key="index">
                         <img :src="item" width="100%" alt="">
                     </el-carousel-item>
@@ -107,15 +107,57 @@
                 cardImage: 'http://photonj.photo.store.qq.com/psc?/V13n4XZY2Y6KLq/BmgsQzVq*GNja8O.UNZvUYyDVclWzNVw67Twv86LlHwtYgW6pB8BGSbdjHOP1ODm3sOXddzQs74JvB72Ax**fVNAqC70j2wBw90sJRGW9FI!/b&bo=gAc4BAAAAAARJ6s!&rf=viewer_4',
                 articleList: require('../../static/data/articleList'),
                 popoverVisible: false,
+                autoplay: true,
             }
         },
         components: {
             Popover
         },
+        mounted(){
+            this.browerTabHandle();
+        },
         methods: {
             logout(){
                 window.sessionStorage.clear();
                 this.reload();
+            },
+            browerTabHandle(){
+                let state = '';
+                let visibilityChange = '';
+                let hidden = '';
+                if(typeof document.hidden !== "undefined"){
+                    hidden = "hidden";
+                    visibilityChange = "visibilitychange";
+                    state = "visibilityState";
+                }else if(typeof document.mozHidden !== "undefined"){
+                    hidden = "mozHidden";
+                    visibilityChange = "mozvisibilitychange";
+                    state = "mozVisibilityState";
+                }else if(typeof document.msHidden !== "undefined"){
+                    hidden = "msHidden";
+                    visibilityChange = "msvisibilitychange";
+                    state = "msVisibilityState";
+                }else if(typeof document.webkitHidden !== "undefined"){
+                    hidden = "webkitHidden";
+                    visibilityChange = "webkitvisibilitychange";
+                    state = "webkitVisibilityState";
+                }
+                document.addEventListener(visibilityChange, () => {
+                    try{
+                        if(document[state] === 'visible'){
+                            this.tabVisible();
+                        }else{
+                            this.tabHidden();
+                        }
+                    } catch(e){
+                    }
+                }, false);
+            },
+            tabVisible(){
+                this.autoplay = true;
+            },
+            tabHidden(){
+                this.autoplay = false;
             }
         }
     }
