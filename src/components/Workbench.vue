@@ -9,34 +9,34 @@
             </el-header>
             <el-container>
                 <!-- 左侧导航区域 -->
-                <el-aside width="200px">
-                    <!--<el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-                        <el-radio-button :label="false">展开</el-radio-button>
-                        <el-radio-button :label="true">收起</el-radio-button>
-                    </el-radio-group>-->
-                    <el-menu default-active="1-4-1" class="el-menu-vertical"
-                             @open="handleOpen" @close="handleClose" 
-                             :default-openeds="['1']"
-                             :unique-opened="true"
-                             :collapse="isCollapse">
-                        <el-submenu index="1">
+                <el-aside :width="isCollapse ? '64px' : '200px'">
+                    <div class="toggle_button" @click="toggleCollapse">|||</div>
+                    <el-menu
+                        :collapse="isCollapse"
+                        unique-opened
+                        :collapse-transition="false"
+                        router
+                        background-color="#333744"
+                        text-color="#fff"
+                        active-text-color="#409EFF">
+                        <el-submenu v-for="item in menuList" :key="item.id" :index="'' + item.id">
                             <template slot="title">
                                 <i class="el-icon-location"></i>
-                                <span slot="title">导航一</span>
+                                <span>{{item.menuName}}</span>
                             </template>
-                            <el-menu-item index="1-3">选项3</el-menu-item>
-                        </el-submenu>
-                        <el-submenu index="2">
-                            <template slot="title">
-                                <i class="el-icon-location"></i>
-                                <span slot="title">导航二</span>
-                            </template>
-                            <el-menu-item index="2-1">选项3</el-menu-item>
+                            <el-menu-item v-for="subItem in item.children" :index="''+subItem.path">
+                                <template slot="title">
+                                    <i class="el-icon-menu"></i>
+                                    <span>{{subItem.menuName}}</span>
+                                </template>
+                            </el-menu-item>
                         </el-submenu>
                     </el-menu>
                 </el-aside>
                 <!-- 右侧主体区域 -->
-                <el-main>Main</el-main>
+                <el-main>
+                    <router-view></router-view>
+                </el-main>
             </el-container>
         </div>
         <Nodatadisplay v-else style="margin-top:0;">
@@ -52,7 +52,8 @@
         name: 'Workbench',
         data(){
             return {
-                isCollapse: false
+                isCollapse: false,
+                menuList: require('../../static/data/menus.json')
             }
         },
         methods: {
@@ -60,11 +61,8 @@
                 window.sessionStorage.clear();
                 this.$router.push({name: 'Index', params: {isGetSession: true}});
             },
-            handleOpen(key, keyPath){
-                console.log(key, keyPath);
-            },
-            handleClose(key, keyPath){
-                console.log(key, keyPath);
+            toggleCollapse(){
+                this.isCollapse = !this.isCollapse;
             }
         },
         components: {
@@ -95,7 +93,7 @@
     }
 
     .el-aside {
-        background-color: #D3DCE6;
+        background-color: #333744;
         color: #333;
     }
 
@@ -109,5 +107,19 @@
     .el-menu-vertical {
         height: 100%;
         background-color: #D3DCE6;
+    }
+    
+    .el-menu {
+        border-right: none;
+    }
+    
+    .toggle_button {
+        font-size: 12px;
+        text-align: center;
+        line-height: 24px;
+        color: #fff;
+        cursor: pointer;
+        background-color: #ddd;
+        letter-spacing: 0.2em;
     }
 </style>

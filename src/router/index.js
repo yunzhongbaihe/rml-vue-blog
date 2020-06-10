@@ -49,6 +49,19 @@ const router = new Router({
             path: '/workbench',
             name: 'Workbench',
             component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Workbench'),
+            redirect: '/workbench/welcome',
+            children: [
+                {
+                    path: '/workbench/welcome',
+                    name: 'Welcome',
+                    component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Welcome')
+                },
+                {
+                    path: '/workbench/users',
+                    name: 'Users',
+                    component: () => import(/* webpackChunkName: "group-foo" */ '@/components/user/Users')
+                }
+            ],
             meta: {showHeaderbar: false},
         },
     ]

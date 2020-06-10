@@ -1,0 +1,13 @@
+[
+    {
+        "id": 100,
+        "menuName": "用户管理",
+        "children": [
+            {
+                "id": 1001,
+                "menuName": "用户列表",
+                "path": "/workbench/users"
+            }
+        ]
+    }
+]

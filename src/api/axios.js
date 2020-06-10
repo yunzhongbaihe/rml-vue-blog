@@ -7,6 +7,7 @@ axios.defaults.timeout = 10000; // 设置超时请求时间
 
 // 设置请求拦截器
 axios.interceptors.request.use(config => {
+    config.headers.Authorization = window.sessionStorage.getItem('token');
     return config;
 }, error => {
     return Promise.reject(error);
