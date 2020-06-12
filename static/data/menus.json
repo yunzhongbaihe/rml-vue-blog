@@ -9,5 +9,16 @@
                 "path": "/workbench/users"
             }
         ]
+    },
+    {
+        "id": 101,
+        "menuName": "权限管理",
+        "children": [
+            {
+                "id": 1011,
+                "menuName": "权限列表",
+                "path": "/workbench/power"
+            }
+        ]
     }
 ]

@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import fa from "element-ui/src/locale/lang/fa";
 
 Vue.use(Router);
 
@@ -60,7 +59,12 @@ const router = new Router({
                     path: '/workbench/users',
                     name: 'Users',
                     component: () => import(/* webpackChunkName: "group-foo" */ '@/components/user/Users')
-                }
+                },
+                {
+                    path: '/workbench/power',
+                    name: 'Powers',
+                    component: () => import(/* webpackChunkName: "group-foo" */ '@/components/power/Powers')
+                },
             ],
             meta: {showHeaderbar: false},
         },

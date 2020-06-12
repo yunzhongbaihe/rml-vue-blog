@@ -10,20 +10,24 @@
             <el-container>
                 <!-- 左侧导航区域 -->
                 <el-aside :width="isCollapse ? '64px' : '200px'">
-                    <div class="toggle_button" @click="toggleCollapse">|||</div>
+                    <!--<div class="toggle_button" @click="toggleCollapse">|||</div>-->
                     <el-menu
                         :collapse="isCollapse"
                         unique-opened
                         :collapse-transition="false"
                         router
+                        :default-active="defaultActive"
+                        :default-openeds="defaultOpeneds"
                         background-color="#333744"
                         text-color="#fff"
                         active-text-color="#409EFF">
-                        <el-submenu v-for="item in menuList" :key="item.id" :index="'' + item.id">
+                        <el-submenu v-for="item in menuList" :key="item.id" :index="''+item.id" 
+                                    @click="onSubmenuClick(item.id)">
                             <template slot="title">
                                 <span>{{item.menuName}}</span>
                             </template>
-                            <el-menu-item v-for="subItem in item.children" :key="subItem.path" :index="subItem.path">
+                            <el-menu-item v-for="subItem in item.children" :key="subItem.path" 
+                                          :index="subItem.path" @click="onMenuItemClick(subItem.path)">
                                 <template slot="title">
                                     <span>{{subItem.menuName}}</span>
                                 </template>
@@ -50,7 +54,9 @@
         data(){
             return {
                 isCollapse: false,
-                menuList: require('../../static/data/menus.json')
+                menuList: require('../../static/data/menus.json'),
+                defaultActive: '',
+                defaultOpeneds: []
             }
         },
         methods: {
@@ -60,7 +66,17 @@
             },
             toggleCollapse(){
                 this.isCollapse = !this.isCollapse;
+            },
+            onMenuItemClick(path){
+                this.defaultActive = path;
+            },
+            onSubmenuClick(path){
+                this.defaultOpeneds = [];
+                this.defaultOpeneds.push(path);
             }
+        },
+        created(){
+            this.defaultActive = this.$route.path;
         },
         components: {
         }
