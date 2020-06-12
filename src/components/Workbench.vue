@@ -21,12 +21,10 @@
                         active-text-color="#409EFF">
                         <el-submenu v-for="item in menuList" :key="item.id" :index="'' + item.id">
                             <template slot="title">
-                                <i class="el-icon-location"></i>
                                 <span>{{item.menuName}}</span>
                             </template>
-                            <el-menu-item v-for="subItem in item.children" :index="''+subItem.path">
+                            <el-menu-item v-for="subItem in item.children" :key="subItem.path" :index="subItem.path">
                                 <template slot="title">
-                                    <i class="el-icon-menu"></i>
                                     <span>{{subItem.menuName}}</span>
                                 </template>
                             </el-menu-item>
@@ -39,15 +37,14 @@
                 </el-main>
             </el-container>
         </div>
-        <Nodatadisplay v-else style="margin-top:0;">
-            <div>没有权限访问该页面，请 <router-link to="/login" style="color:#51AEF0;">登录</router-link> 后操作</div>
-        </Nodatadisplay>
+        <div class="no_power" v-else>
+            <img src="../../static/images/error_nopower.png" alt="">
+            <div>请 <router-link to="/login" style="color:#51AEF0;">登录</router-link> 后操作</div>
+        </div>
     </el-container>
 </template>
 
 <script>
-    import Nodatadisplay from '@/components/Nodatadisplay';
-    
     export default {
         name: 'Workbench',
         data(){
@@ -66,7 +63,6 @@
             }
         },
         components: {
-            Nodatadisplay
         }
     };
 </script>
@@ -121,5 +117,11 @@
         cursor: pointer;
         background-color: #ddd;
         letter-spacing: 0.2em;
+    }
+    
+    .no_power div {
+        margin-top: 20px;
+        line-height: 24px;
+        text-align: right;
     }
 </style>

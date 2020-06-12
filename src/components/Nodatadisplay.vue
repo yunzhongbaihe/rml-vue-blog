@@ -1,5 +1,5 @@
 <template>
-    <div class="none_book_info">
+    <div class="none_info">
         <div>{{msg}}</div>
         <slot></slot>
     </div>
@@ -17,7 +17,7 @@
 </script>
 
 <style scoped>
-    .none_book_info {
+    .none_info {
         margin-top: 200px;
         padding-top: 165px;
         min-width: 200px;
