@@ -9,7 +9,7 @@ axios.defaults.timeout = 10000; // 设置超时请求时间
 axios.interceptors.request.use(config => {
     const {url} = config;
     if(!url.includes('login') && !url.includes('register')){
-        config.headers.Authorization = window.sessionStorage.getItem('token');
+        config.headers.Authorization = `Bearer ${window.sessionStorage.getItem('token')}`;
     }
     return config;
 }, error => {
