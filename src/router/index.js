@@ -40,7 +40,11 @@ const router = new Router({
             name: 'Books',
             component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Books'),
             children: [
-                {path: 'info/:id', component: () => import(/* webpackChunkName: "group-foo" */ '@/components/BookInfo')}
+                {
+                    path: 'info/:id', 
+                    component: () => import(/* webpackChunkName: "group-foo" */ '@/components/BookInfo'),
+                    meta: {showHeaderbar: true},
+                }
             ],
             meta: {showHeaderbar: true},
         },

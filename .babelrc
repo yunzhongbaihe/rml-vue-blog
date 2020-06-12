@@ -24,6 +24,7 @@
     "plugins": [
         "transform-vue-jsx",
         "transform-runtime",
+        "transform-remove-console",
         [
             "component",
             {
