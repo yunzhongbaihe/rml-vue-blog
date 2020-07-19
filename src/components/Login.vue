@@ -4,24 +4,19 @@
 			<div class="login_title">账户登录</div>
 			<el-form ref="loginFormRef" class="login_form" label-width="0px" :model="loginForm" :rules="loginFormRules">
 				<el-form-item prop="username">
-					<el-input v-model="loginForm.username" prefix-icon="el-icon-user"></el-input>
+					<el-input v-model="loginForm.username" prefix-icon="el-icon-user" placeholder="请输入名称"></el-input>
 				</el-form-item>
 				<el-form-item prop="password">
-					<el-input v-model="loginForm.password" type="password" prefix-icon="el-icon-lock"></el-input>
+					<el-input v-model="loginForm.password" type="password" prefix-icon="el-icon-lock"
+					          placeholder="请输入密码"></el-input>
 				</el-form-item>
-				<el-form-item class="btns">
+				<el-form-item class="btns" style="margin-top: 26px;margin-bottom: 6px;">
 					<a href="javascript:void(0);" class="login_btn" @click="login">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
-
-					<!--<div style="margin-right:20px;">没有账号？
-						<router-link to="/register">去注册</router-link>&nbsp;<router-link to="/index">返回首页</router-link>
-					</div>-->
-					<div>
-						<!--<el-button type="info" size="small" @click="resetLoginForm">重置</el-button>-->
-					</div>
 				</el-form-item>
 			</el-form>
 			<div class="login_footer">
-				<router-link  to="/findpwd" style="color:#666;">忘记密码</router-link>
+				<router-link to="/findpwd" style="color:#666;">忘记密码</router-link>
+				<router-link to="/index" style="color:#666;">回到首页</router-link>
 				<router-link to="/register" style="color:#b61d1d;">立即注册</router-link>
 			</div>
 		</div>

@@ -1,29 +1,37 @@
 <template>
 	<div class="register_container">
 		<div class="register_box">
-			<el-form ref="registerFormRef" class="register_form" label-width="82px" :model="registerForm" :rules="registerFormRules">
-				<el-form-item prop="username" label="用户名">
-					<el-input v-model="registerForm.username"></el-input>
+			<div class="register_title">账户登录</div>
+			<el-form ref="registerFormRef" class="register_form" :model="registerForm" :rules="registerFormRules">
+				<el-form-item prop="username">
+					<el-input v-model="registerForm.username" placeholder="请输入名称">
+						<template slot="prepend">名&nbsp;&nbsp;&nbsp;称</template>
+					</el-input>
 				</el-form-item>
-				<el-form-item prop="password" label="密码">
-					<el-input v-model="registerForm.password" type="password"></el-input>
+				<el-form-item prop="password">
+					<el-input v-model="registerForm.password" type="password" placeholder="请输入密码">
+						<template slot="prepend">密&nbsp;&nbsp;&nbsp;码</template>
+					</el-input>
 				</el-form-item>
-				<el-form-item prop="checkPassword" label="确认密码">
-					<el-input v-model="registerForm.checkPassword" type="password"></el-input>
+				<el-form-item prop="checkPassword">
+					<el-input v-model="registerForm.checkPassword" type="password" placeholder="请再次输入密码">
+						<template slot="prepend">确认密码</template>
+					</el-input>
 				</el-form-item>
-				<el-form-item prop="email" label="邮箱">
-					<el-input v-model="registerForm.email"></el-input>
+				<el-form-item prop="email">
+					<el-input v-model="registerForm.email" placeholder="请输入邮箱">
+						<template slot="prepend">邮&nbsp;&nbsp;&nbsp;箱</template>
+					</el-input>
 				</el-form-item>
-				<el-form-item class="btns">
-					<div style="margin-right:20px;">已有账号？
-						<router-link to="/login">去登录</router-link>&nbsp;<router-link to="/index">返回首页</router-link>
-					</div>
-					<div>
-						<el-button type="primary" size="small" @click="register">确定</el-button>
-						<el-button type="info" size="small" @click="resetregisterForm">重置</el-button>
-					</div>
+				<el-form-item class="btns" style="margin-top: 26px;margin-bottom: 6px;">
+					<a href="javascript:void(0);" class="register_btn" @click="register">注&nbsp;&nbsp;&nbsp;&nbsp;册</a>
 				</el-form-item>
 			</el-form>
+			<div class="register_footer">
+				<router-link  to="/findpwd" style="color:#666;">忘记密码</router-link>
+				<router-link  to="/index" style="color:#666;">回到首页</router-link>
+				<router-link to="/login" style="color:#b61d1d;">立即登录</router-link>
+			</div>
 		</div>
 	</div>
 </template>
@@ -43,7 +51,8 @@
 				// 验证规则对象
 				registerFormRules: {
 					username: [
-						{required: true, message: '请输入用户名', trigger: 'blur'},
+						{required: true, message: '请输入名称', trigger: 'blur'},
+						{pattern: /^[a-zA-Z0-9_]+$/, message: '名称格式不正确'},
 						{min: 3, max: 10, message: '长度在 3 到 10 个字符之间', trigger: 'blur'}
 					],
 					password: [
@@ -111,20 +120,16 @@
 		position: absolute;
 		left: 50%;
 		top: 50%;
-		min-width: 600px;
+		width: 450px;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		border-radius: 3px;
 	}
 
 	.register_form {
-		padding: 22px 22px 0;
+		padding: 23px 20px 20px;
 		width: 100%;
 		box-sizing: border-box;
-	}
-
-	.btns a, .btns a:visited {
-		color: #51AEF0;
 	}
 
 	/deep/ .btns .el-form-item__content {
@@ -133,5 +138,51 @@
 		align-items: flex-end;
 		margin-bottom: 0;
 		line-height: normal;
+	}
+
+	.register_title {
+		height: 54px;
+		font-size: 18px;
+		font-family: "microsoft yahei";
+		text-align: center;
+		border-bottom: 1px solid #f4f4f4;
+		background: #fff;
+		line-height: 54px;
+		font-weight: 700;
+		color: #e4393c;
+	}
+
+	.register_btn {
+		border: 1px solid #e85356;
+		display: block;
+		width: 100%;
+		background: #e4393c;
+		height: 30px;
+		line-height: 28px;
+		color: #fff;
+		font-size: 16px;
+		font-family: 'Microsoft YaHei';
+		text-align: center;
+		text-decoration: none;
+	}
+
+	.register_footer {
+		display: flex;
+		justify-content: space-between;
+		padding-left: 20px;
+		padding-right: 20px;
+		line-height: 50px;
+		border-top: 1px solid #f4f4f4;
+		height: auto;
+		background-color: #fcfcfc;
+	}
+
+	.register_footer a {
+		text-decoration: none;
+		font-size: 14px;
+	}
+
+	>>> .el-form-item__error {
+		left: 96px;
 	}
 </style>

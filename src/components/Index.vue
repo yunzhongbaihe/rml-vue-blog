@@ -117,7 +117,6 @@
 			Popover
 		},
 		mounted(){
-			this.profileData = JSON.parse(sessionStorage.getItem('profileData') || '{}');
 			this.browerTabHandle();
 		},
 		methods: {
@@ -163,6 +162,11 @@
 			tabHidden(){
 				this.autoplay = false;
 			}
+		},
+		created(){
+			setTimeout(() => {
+				this.profileData = JSON.parse(sessionStorage.getItem('profileData') || '{}');
+			}, 1000);
 		}
 	}
 </script>
