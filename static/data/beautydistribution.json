@@ -1,0 +1,107 @@
+[
+	{
+		"index": 1,
+		"path": "/beijing",
+		"name": "北京",
+		"children": [
+			{
+				"index": 1.1,
+				"path": "/beijing/zhaofeng",
+				"name": "赵凤",
+				"children": [
+					{
+						"index": 1.11,
+						"path": "/zhaofeng/fangshan",
+						"name": "房山",
+						"children": [
+							{
+								"index": 1.111,
+								"path": "/fangshan/dongsanqi",
+								"name": "东三旗"
+							}
+						]
+					},
+					{
+						"index": 1.12,
+						"path": "/zhaofeng/changping",
+						"name": "昌平"
+					}
+				]
+			},
+			{
+				"index": 1.2,
+				"path": "/beijing/wangjijin",
+				"name": "王冀晋",
+				"children": []
+			},
+			{
+				"index": 1.3,
+				"path": "/beijing/zhangdongxue",
+				"name": "张冬雪",
+				"children": []
+			}
+		]
+	},
+	{
+		"index": 2,
+		"path": "/nanjing",
+		"name": "南京",
+		"children": [
+			{
+				"index": 2.1,
+				"path": "/nanjing/shangleixue",
+				"name": "尚雷雪",
+				"children": []
+			},
+			{
+				"index": 2.2,
+				"path": "/nanjing/daiyushan",
+				"name": "戴玉珊",
+				"children": []
+			},
+			{
+				"index": 2.3,
+				"path": "/anmengyuan",
+				"name": "安梦园",
+				"children": []
+			},
+			{
+				"index": 2.4,
+				"path": "/nanjing/sunlingling",
+				"name": "孙玲玲",
+				"children": []
+			}
+		]
+	},
+	{
+		"index": 3,
+		"path": "/suzhou",
+		"name": "苏州",
+		"children": [
+			{
+				"index": 3.1,
+				"path": "/suzhou/wangxiaolian",
+				"name": "汪晓莲",
+				"children": []
+			},
+			{
+				"index": 3.2,
+				"path": "/suzhou/weilihong",
+				"name": "魏丽红",
+				"children": []
+			},
+			{
+				"index": 3.3,
+				"path": "/suzhou/huangxia",
+				"name": "黄霞",
+				"children": []
+			},
+			{
+				"index": 3.4,
+				"path": "/suzhou/renmeiling",
+				"name": "任美玲",
+				"children": []
+			}
+		]
+	}
+]

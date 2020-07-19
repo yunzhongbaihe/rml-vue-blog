@@ -1,24 +1,50 @@
 [
-    {
-        "id": 100,
-        "menuName": "用户管理",
-        "children": [
-            {
-                "id": 1001,
-                "menuName": "用户列表",
-                "path": "/workbench/users"
-            }
-        ]
-    },
-    {
-        "id": 101,
-        "menuName": "权限管理",
-        "children": [
-            {
-                "id": 1011,
-                "menuName": "权限列表",
-                "path": "/workbench/power"
-            }
-        ]
-    }
+	{
+		"id": 100,
+		"name": "用户管理",
+		"path": "/usermanage",
+		"children": [
+			{
+				"id": 1001,
+				"name": "用户列表",
+				"path": "/workbench/users",
+				"children": [
+					{
+						"id": 10011,
+						"name": "北京",
+						"path": "/users/bj",
+						"children": [
+							{
+								"id": 100111,
+								"name": "赵凤",
+								"path": "/bj/zf"
+							}
+						]
+					},
+					{
+						"id": 10012,
+						"name": "南京",
+						"path": "/users/nj"
+					},
+					{
+						"id": 10013,
+						"name": "苏州",
+						"path": "/users/sz"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 101,
+		"name": "权限管理",
+		"path": "/powermanage",
+		"children": [
+			{
+				"id": 1011,
+				"name": "权限列表",
+				"path": "/workbench/power"
+			}
+		]
+	}
 ]

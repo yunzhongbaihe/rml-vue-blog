@@ -1,13 +1,12 @@
 <template>
-	<div>Welcome</div>
+	<div>找回密码</div>
 </template>
 
 <script>
 	export default {
-		name: 'Welcome'
+		name: 'Findpwd'
 	}
 </script>
 
 <style scoped>
-
 </style>
