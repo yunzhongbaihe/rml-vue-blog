@@ -78,6 +78,11 @@ const router = new Router({
 			],
 			meta: {showHeaderbar: false},
 		},
+    {
+    	path: '/print',
+    	name: 'Print',
+    	component: () => import(/* webpackChunkName: "group-print" */ '@/components/print'),
+    },
 	]
 });
 

@@ -12,16 +12,22 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI);
 Vue.use(AxiosApi);
 
+// 打印插件
+import Print from 'vue-print-nb';
+Vue.use(Print);
+
 Vue.prototype.tokenStr = window.sessionStorage.getItem('token');
 Vue.prototype.getSession = () => {
-    Vue.prototype.tokenStr = window.sessionStorage.getItem('token');
+  Vue.prototype.tokenStr = window.sessionStorage.getItem('token');
 };
 
 /* eslint-disable no-new */
 new Vue({
-    el: '#app',
-    router,
-    store,
-    components: {App},
-    template: '<App/>'
+  el: '#app',
+  router,
+  store,
+  components: {
+    App
+  },
+  template: '<App/>'
 });

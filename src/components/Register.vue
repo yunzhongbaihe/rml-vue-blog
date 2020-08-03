@@ -113,7 +113,7 @@
 <style scoped>
 	.register_container {
 		height: 100%;
-		background-color: #2b4b6b;
+		background-color: #E5E5E5;
 	}
 
 	.register_box {
@@ -157,13 +157,13 @@
 		display: block;
 		width: 100%;
 		background: #e4393c;
-		height: 30px;
-		line-height: 28px;
+		line-height: 38px;
 		color: #fff;
 		font-size: 16px;
 		font-family: 'Microsoft YaHei';
 		text-align: center;
 		text-decoration: none;
+    border-radius: 2px;
 	}
 
 	.register_footer {
