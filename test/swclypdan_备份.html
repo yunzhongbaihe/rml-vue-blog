@@ -1,0 +1,295 @@
+<script>function handRowEvent(ev, table) {
+    $("td.tdNo", table).each(function(i) {
+      var num = i + 1;
+      $(this).html("<span style='float:left;'><a class='link del' href='javascript:;' style='display:inline;line-height:23px'></a>" + num);
+    });
+  }
+</script>
+<style type="text/css">
+  <!--
+  .STYLE1 {
+    font-size: 18px;
+    color: #ff0000;
+  }
+  -->
+</style>
+<p>
+  <br />
+</p>
+<table width="100%" cellspacing="0" cellpadding="2" border="1">
+  <tbody>
+    <tr>
+      <td style="width:15%;word-break:break-all;" class="formTitle" nowrap="nowarp" align="right">
+        点击阅览文件
+      </td>
+      <td style="width:35%;" class="formInput" colspan="3">
+        <div name="div_attachment_container">
+          <div class="attachement">
+          </div><textarea style="display:none" controltype="attachment" name="m:swclb1:zw" lablename="正文" validate="{}"
+            validatable="true"></textarea><a href="javascript:;" field="m:swclb1:zw" class="link selectFile"
+            atype="select" onclick="{AttachMent.directUpLoadFile(this);}">选择</a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="text-align:center">
+  <span style="font-size:40px;font-family:方正小标宋简体;color:red">文件阅批单</span>
+</p>
+<table style="border-left-width:0px;border-right-width:0px;border-top-width:0px;border-collapse:collapse" width="919"
+  border="1" align="center" cellpadding="10" cellspacing="0" bordercolor="#FF0000">
+  <tbody>
+    <tr>
+      <td width="187" align="center" valign="middle">
+        <strong><span style="color:#ff0000;font-size:18px;">发文号</span></strong>
+      </td>
+      <td width="187" align="center" valign="middle">
+        <span name="editable-input" style="display:inline-block;" isflag="tableflag"><input type="text"
+            name="m:swclb1:swbh" lablename="收文编号" class="inputText" validate="{maxlength:50}" isflag="tableflag"
+            readonly="readonly" /></span><br />
+      </td>
+      <td width="187" align="center" valign="middle">
+        <strong><span style="color:#ff0000;font-size:18px;">来文机关</span></strong>
+      </td>
+      <td width="187" align="center" valign="middle">
+        <span name="editable-input" style="display:inline-block;" isflag="tableflag"><input type="text"
+            name="m:swclb1:lwjg" lablename="来文机关" class="inputText" validate="{maxlength:100}" isflag="tableflag"
+            readonly="readonly" /></span><br />
+      </td>
+      <td width="62" align="center" valign="middle">
+        <strong><span style="color:#ff0000;font-size:18px;">密级</span></strong>
+      </td>
+      <td width="156" align="center" valign="middle">
+        <input lablename="密级" class="dicComboTree" nodekey="wjmj" validate="{empty:false}" name="m:swclb1:mj"
+          height="200" width="125" />
+      </td>
+    </tr>
+    <tr>
+      <td width="187" align="center" valign="middle">
+        <strong><span style="color:#ff0000;font-size:18px;">标题</span></strong>
+      </td>
+      <td colspan="5" rowspan="1" align="center" valign="middle">
+        <span name="editable-input" style="display:inline-block;" isflag="tableflag"><input name="m:swclb1:bt"
+            type="text" class="inputText" size="90" width="460" readonly="readonly" lablename="标题"
+            validate="{maxlength:100}" isflag="tableflag" /></span>
+      </td>
+    </tr>
+    <tr>
+      <td width="187" align="center" valign="top">
+        <p style="padding:0px;margin-top:0px;margin-bottom:0px;">
+          <strong><span style="color:#ff0000;font-size:18px;">旅</span></strong>
+        </p>
+        <p style="padding:0px;margin-top:0px;margin-bottom:0px;">
+          <strong><span style="color:#ff0000;font-size:18px;">首</span></strong>
+        </p>
+        <p style="padding:0px;margin-top:0px;margin-bottom:0px;">
+          <strong><span style="color:#ff0000;font-size:18px;">长</span></strong>
+        </p>
+        <p style="padding:0px;margin-top:0px;margin-bottom:0px;">
+          <strong><span style="color:#ff0000;font-size:18px;">批</span></strong>
+        </p>
+        <p style="padding:0px;margin-top:0px;margin-bottom:0px;">
+          <strong><span style="color:#ff0000;font-size:18px;">示</span></strong>
+        </p>
+      </td>
+      <td colspan="5" rowspan="1" align="center" valign="top">
+        <span name="editable-input" style="display:inline-block;" isflag="tableflag"><textarea name="m:swclb1:lszps"
+            lablename="旅首长批示" class="l-textarea" rows="5" cols="40" validate="{maxlength:2000}" isflag="tableflag"
+            widthunit="px" heightunit="px" style="margin:0px;width:650px;height:188px;"
+            readonly="readonly"></textarea></span><br />
+      </td>
+    </tr>
+    <tr>
+      <td width="187" align="center" valign="top">
+        <table width="80" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <div align="right">
+                  <span style="padding:0px;margin-top:0px;margin-bottom:0px;"><strong><span
+                        class="STYLE1">部</span></strong></span>
+                </div>
+              </td>
+              <td>
+                <div align="left">
+                  <span style="padding:0px;margin-top:0px;margin-bottom:0px;"><strong><span
+                        class="STYLE1">意</span></strong></span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div align="right">
+                  <span style="padding:0px;margin-top:0px;margin-bottom:0px;"><strong><span
+                        class="STYLE1">门</span></strong></span>
+                </div>
+              </td>
+              <td>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div align="right">
+                  <span style="padding:0px;margin-top:0px;margin-bottom:0px;"><strong><span
+                        class="STYLE1">领</span></strong></span>
+                </div>
+              </td>
+              <td>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div align="right">
+                  <span style="padding:0px;margin-top:0px;margin-bottom:0px;"><strong><span
+                        class="STYLE1">导</span></strong></span>
+                </div>
+              </td>
+              <td>
+                <div align="left">
+                  <span style="padding:0px;margin-top:0px;margin-bottom:0px;"><strong><span
+                        class="STYLE1">见</span></strong></span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td colspan="5" rowspan="1" align="center" valign="top">
+        <span name="editable-input" style="display:inline-block;" isflag="tableflag"><textarea name="m:swclb1:bmldyj"
+            lablename="部门领导意见" class="l-textarea" rows="5" cols="40" validate="{maxlength:2000}" isflag="tableflag"
+            style="margin:0px;width:650px;height:168px;" readonly="readonly"></textarea></span><br />
+      </td>
+    </tr>
+    <tr>
+      <td width="187" align="center" valign="top">
+        <table width="80" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td>
+                <div align="right">
+                  <span style="padding:0px;margin-top:0px;margin-bottom:0px;"><strong><span
+                        class="STYLE1">业</span></strong></span>
+                </div>
+              </td>
+              <td>
+                <div align="left">
+                  <span style="padding:0px;margin-top:0px;margin-bottom:0px;"><strong><span
+                        class="STYLE1">意</span></strong></span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div align="right">
+                  <span style="padding:0px;margin-top:0px;margin-bottom:0px;"><strong><span
+                        class="STYLE1">务</span></strong></span>
+                </div>
+              </td>
+              <td>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div align="right">
+                  <span style="padding:0px;margin-top:0px;margin-bottom:0px;"><strong><span
+                        class="STYLE1">科</span></strong></span>
+                </div>
+              </td>
+              <td>
+                <div align="left">
+                  <span style="padding:0px;margin-top:0px;margin-bottom:0px;"><strong><span
+                        class="STYLE1">见</span></strong></span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="padding:0px;margin-top:0px;margin-bottom:0px;">
+          <br />
+        </p>
+      </td>
+      <td colspan="5" rowspan="1" align="center" valign="top">
+        <span name="editable-input" style="display:inline-block;" isflag="tableflag"><textarea name="m:swclb1:ywkyj"
+            lablename="业务科意见" class="l-textarea" rows="5" cols="40" validate="{maxlength:2000}" isflag="tableflag"
+            style="margin:0px;width:650px;height:159px;" readonly="readonly"></textarea></span><br />
+      </td>
+    </tr>
+    <tr>
+      <td width="187" align="center" valign="top">
+        <table width="80" border="0" cellspacing="0" cellpadding="4">
+          <tbody>
+            <tr>
+              <td>
+                <p style="padding:0px;text-align:right;margin-top:0px;margin-bottom:0px;">
+                  <strong><span class="STYLE1">批</span></strong>
+                </p>
+                <p style="padding:0px;text-align:right;margin-top:0px;margin-bottom:0px;">
+                  <strong><span class="STYLE1">办</span></strong>
+                </p>
+              </td>
+              <td>
+                <p style="padding:0px;text-align:left;margin-top:0px;margin-bottom:0px;">
+                  <strong><span class="STYLE1">示</span></strong>
+                </p>
+                <p style="padding:0px;text-align:left;margin-top:0px;margin-bottom:0px;">
+                  <strong><span class="STYLE1">理</span></strong>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td colspan="5" rowspan="1" align="center" valign="top">
+        <span name="editable-input" style="display:inline-block;" isflag="tableflag"><textarea name="m:swclb1:psbl"
+            lablename="批示办理" class="l-textarea" rows="5" cols="40" validate="{maxlength:2000}" isflag="tableflag"
+            style="margin:0px;height:135px;width:650px;"></textarea></span><br />
+      </td>
+    </tr>
+    <tr>
+      <td width="187" colspan="1" rowspan="1" align="center" valign="middle">
+        <p>
+          <strong><span style="color:#ff0000;font-size:18px;">承办单位</span></strong>
+        </p>
+      </td>
+      <td width="187" colspan="1" rowspan="1" align="center" valign="middle">
+        <span name="editable-input" style="display:inline-block;" isflag="tableflag"><input type="text"
+            name="m:swclb1:cbdw" lablename="承办单位" class="inputText" validate="{maxlength:100}"
+            isflag="tableflag" /></span><br />
+      </td>
+      <td width="187" colspan="1" rowspan="1" align="center" valign="middle">
+        <strong><span style="color:#ff0000;font-size:18px;">承办人</span></strong>
+      </td>
+      <td width="187" colspan="1" rowspan="1" align="center" valign="middle">
+        <span name="editable-input" style="display:inline-block;" isflag="tableflag"><input type="text"
+            name="m:swclb1:cbr" lablename="承办人" class="inputText" validate="{maxlength:50}"
+            isflag="tableflag" /></span><br />
+      </td>
+      <td width="62" colspan="1" rowspan="1" align="center" valign="middle">
+        <strong><span style="color:#ff0000;font-size:18px;">电话</span></strong>
+      </td>
+      <td width="156" colspan="1" rowspan="1" align="center" valign="middle">
+        <input name="m:swclb1:dh" type="text"
+          showtype="{&quot;coinValue&quot;:&quot;&quot;,&quot;isShowComdify&quot;:0,&quot;decimalValue&quot;:0}"
+          lablename="电话" validate="{number:true,maxIntLen:13,maxDecimalLen:0}" /><br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="text-align:center">
+  <br />
+</p>
+<table width="919" border="1" align="center" cellpadding="20" cellspacing="0" bordercolor="#FF0000">
+  <tbody>
+    <tr>
+      <td align="center" valign="top">
+        <strong><span style="color:#ff0000;font-size:18px;">附言（承办单位办文的具体意见或对有关情况的说明）</span></strong><span
+          name="editable-input" style="display:inline-block;" isflag="tableflag"><textarea name="m:swclb1:fy"
+            lablename="附言" class="l-textarea" rows="5" cols="40" validate="{maxlength:2000}" isflag="tableflag"
+            style="margin:0px;width:701px;height:636px;"></textarea></span><br />
+      </td>
+    </tr>
+  </tbody>
+</table>

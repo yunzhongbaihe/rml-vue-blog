@@ -1,0 +1,178 @@
+<script>function handRowEvent(ev, table) {
+    $("td.tdNo", table).each(function(i) {
+      var num = i + 1;
+      $(this).html("<span style='float:left;'><a class='link del' href='javascript:;' style='display:inline;line-height:23px'></a>" + num);
+    });
+  }
+</script>
+<style type="text/css">
+  <!--
+  .STYLE1 {
+    font-size: 18px;
+    color: #ff0000;
+  }
+  -->
+</style>
+<p>
+  <br />
+</p>
+<table width="100%" cellspacing="0" cellpadding="2" border="1">
+  <tbody>
+    <tr>
+      <td style="width:15%;word-break:break-all;" class="formTitle" nowrap="nowarp" align="right">
+        点击阅览文件
+      </td>
+      <td style="width:35%;" class="formInput" colspan="3">
+        <div name="div_attachment_container">
+          <div class="attachement">
+          </div>
+          <textarea style="display:none" controltype="attachment" name="m:swclb1:zw" lablename="正文" validate="{}"
+            validatable="true"></textarea><a href="javascript:;" field="m:swclb1:zw" class="link selectFile"
+            atype="select" onclick="{AttachMent.directUpLoadFile(this);}">选择</a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<style>
+  .tableContent input:focus,
+  .tableContent textarea:focus {
+    outline: none;
+  }
+  .tableContent input,
+  .tableContent textarea {
+    border: none !important;
+  }
+</style>
+<div class="tableContent" style="width:606px;margin:0 auto;">
+  <p style="text-align:center">
+    <span style="font-size:40px;font-family:方正小标宋简体;color:red">文件阅批单</span>
+  </p>
+  <div style="box-sizing:border-box;border-right:1px solid #ff0000;border-bottom: 1px solid #ff0000;">
+    <div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:84px;height:54px;line-height:54px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;">发文号</div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:100px;height:54px;line-height:54px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;padding:1px;">
+        <div name="editable-input" isflag="tableflag" style="height:100%;">
+          <input type="text" name="m:swclb1:swbh" lablename="收文编号" class="inputText" validate="{maxlength:50}"
+            isflag="tableflag" readonly="readonly" style="width:100%;height:100%;border:none;text-align:center;display:block;box-sizing:border-box;" />
+        </div>
+      </div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:105px;height:54px;line-height:54px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;">来文机关</div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:120px;height:54px;line-height:54px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;padding:1px;">
+        <div name="editable-input" isflag="tableflag" style="height:100%;">
+          <input type="text" name="m:swclb1:lwjg" lablename="来文机关" class="inputText" validate="{maxlength:100}"
+            isflag="tableflag" readonly="readonly" style="width:100%;height:100%;border:none;text-align:center;display:block;box-sizing:border-box;" />
+        </div>
+      </div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:90px;height:54px;line-height:54px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;">密级</div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:105px;height:54px;line-height:54px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;padding:1px;display:flex;align-items:center;">
+        <input lablename="密级" class="dicComboTree" nodekey="wjmj" validate="{empty:false}" name="m:swclb1:mj"
+          style="width:100%;height:100%;border:none;text-align:center;display:block;box-sizing:border-box;" />
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+    <div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:84px;height:54px;line-height:54px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;">标<span style="padding:0 10px;"></span>题</div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:521px;height:54px;line-height:54px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;padding:1px;">
+        <div name="editable-input" isflag="tableflag" style="height:100%;"><input name="m:swclb1:bt" type="text" class="inputText"
+            readonly="readonly" lablename="标题" validate="{maxlength:100}" isflag="tableflag"
+            style="width:100%;height:100%;text-align:center;border:none;display:block;box-sizing:border-box;" /></div>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+    <div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:84px;height:295px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;">
+        <div>旅</div>
+        <div style="padding:10px 0;"></div>
+        <div>首</div>
+        <div style="padding:10px 0;"></div>
+        <div>长</div>
+        <div style="padding:10px 0;"></div>
+        <div>批</div>
+        <div style="padding:10px 0;"></div>
+        <div>示</div>
+      </div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:521px;height:295px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;padding:1px;">
+        <div name="editable-input" isflag="tableflag" style="height:100%;">
+          <textarea name="m:swclb1:lszps" lablename="旅首长批示" validate="{maxlength:2000}" isflag="tableflag" widthunit="px" heightunit="px" style="padding:10px;width:100%;height:100%;border:none;resize:none;display:block;box-sizing:border-box;" readonly="readonly"></textarea>
+        </div>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+    <div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:84px;height:158px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;display:flex;justify-content:center;align-items:center;">
+        <div style="width:20px;">部门领导</div>
+        <div style="width:20px;margin-left:23px;">意<div style="padding:24px 0;"></div>见</div>
+      </div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:521px;height:158px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;padding:1px;">
+        <div name="editable-input" isflag="tableflag" style="height:100%;"><textarea name="m:swclb1:bmldyj" lablename="部门领导意见" validate="{maxlength:2000}" isflag="tableflag" style="padding:10px;width:100%;height:100%;border:none;resize:none;display:block;box-sizing:border-box;" readonly="readonly"></textarea></div>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+    <div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:84px;height:97px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;display:flex;justify-content:center;align-items:center;">
+        <div style="width:20px;">业务科</div>
+        <div style="width:20px;margin-left:23px;">意<div style="padding:12px 0;"></div>见</div>
+      </div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:521px;height:97px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;padding:1px;">
+        <div name="editable-input" isflag="tableflag" style="height:100%;"><textarea name="m:swclb1:ywkyj" lablename="业务科意见" validate="{maxlength:2000}" isflag="tableflag" style="padding:10px;width:100%;height:100%;border:none;resize:none;display:block;box-sizing:border-box;" readonly="readonly"></textarea></div>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+    <div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:84px;height:90px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;display:flex;justify-content:center;align-items:center;">
+        <div style="width:20px;">批办</div>
+        <div style="width:20px;margin-left:23px;">示理</div>
+      </div>
+      <div
+        style="float:left;font-weight:bold;color:#ff0000;font-size:18px;text-align:center;width:521px;height:90px;border-left:1px solid #ff0000;border-top: 1px solid #ff0000;box-sizing:border-box;padding:1px;">
+        <div name="editable-input" isflag="tableflag" style="height:100%;"><textarea name="m:swclb1:psbl" lablename="批示办理" validate="{maxlength:2000}" isflag="tableflag" style="padding:10px;height:100%;width:100%;border:none;resize:none;display:block;box-sizing:border-box;"></textarea></div>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
+  <div style="display:flex;line-height:54px;justify-content:space-between;">
+    <div style="font-size:18px;color:#ff0000;">承办单位：</div>
+    <div name="editable-input" isflag="tableflag" style="width:130px;">
+      <input type="text" name="m:swclb1:cbdw" lablename="承办单位" class="inputText" validate="{maxlength:100}"
+        isflag="tableflag" style="width:100%;height:100%;border:none;display:block;box-sizing:border-box;" />
+    </div>
+    <div style="font-size:18px;color:#ff0000;">承办人：</div>
+    <div name="editable-input" isflag="tableflag" style="width:130px;">
+      <input type="text" name="m:swclb1:cbr" lablename="承办人" class="inputText" validate="{maxlength:50}"
+        isflag="tableflag" style="width:100%;height:100%;border:none;display:block;box-sizing:border-box;" />
+    </div>
+    <div style="font-size:18px;color:#ff0000;">电话：</div>
+    <div style="width:130px;">
+      <input name="m:swclb1:dh" type="text"
+        showtype="{&quot;coinValue&quot;:&quot;&quot;,&quot;isShowComdify&quot;:0,&quot;decimalValue&quot;:0}"
+        lablename="电话" validate="{number:true,maxIntLen:13,maxDecimalLen:0}"
+        style="width:100%;height:100%;border:none;display:block;box-sizing:border-box;" />
+    </div>
+  </div>
+  <div style="border:1px solid #ff0000;box-sizing:border-box;margin-top:80px;">
+    <div style="font-size:18px;color:#ff0000;padding-left:54px;line-height:40px;">
+      <span style="font-weight:bold;">附言</span>
+      <span style="padding-left:22px;">（承办单位办文的具体意见或对有关情况的说明）</span>
+    </div>
+    <div name="editable-input" style="height:900px;padding:1px;" isflag="tableflag">
+      <textarea name="m:swclb1:fy" lablename="附言" validate="{maxlength:2000}" isflag="tableflag"
+        style="padding:10px;width:100%;height:100%;border:none;resize:none;display:block;box-sizing:border-box;"></textarea>
+    </div>
+  </div>
+</div>
